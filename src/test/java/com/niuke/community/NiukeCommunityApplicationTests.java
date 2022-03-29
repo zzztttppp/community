@@ -5,6 +5,8 @@ import com.niuke.community.dao.DiscussPostMapper;
 import com.niuke.community.dao.UserMapper;
 import com.niuke.community.entity.DiscussPost;
 import com.niuke.community.entity.User;
+
+import com.niuke.community.util.MailClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.test.context.ContextConfiguration;
 
+import javax.mail.MessagingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +23,9 @@ import java.util.List;
 @SpringBootTest
 @ContextConfiguration(classes = NiukeCommunityApplication.class)
 class NiukeCommunityApplicationTests implements ApplicationContextAware {
+
+
+
     private ApplicationContext applicationContext;
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -43,4 +49,12 @@ class NiukeCommunityApplicationTests implements ApplicationContextAware {
         System.out.println("一共："+num);
 
     }
+
+    /*@Autowired
+    private MailClient mailClient;
+    @Test
+    void testMail() throws MessagingException {
+        mailClient.sendMail("421238744@qq.com","张涛","张涛发了第一封邮件");
+
+    }*/
 }
